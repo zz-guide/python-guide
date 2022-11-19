@@ -1,1 +1,1 @@
-__all_ = ['t_file']
+__all__ = ['t_file']
