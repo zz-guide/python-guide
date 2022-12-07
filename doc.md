@@ -59,3 +59,43 @@
     需要注意的时，对于IO密集型任务，在Python中也有较好的解决方式——协程，在后续文章会详细讨论。
 
 # python协程
+
+    参考网址：https://blog.csdn.net/Cyrus_May/article/details/122491335
+    方案：
+    greenlet模块（早期）
+    yield关键字
+    asyncio模块（py3.4）
+    async、await关键字（py3.5）
+
+    作用:
+    在一个线程中，如果遇到IO等待时间，利用该空闲时间去处理其余任务。
+
+# sqlite
+
+    Sqlite没有实现TRUNCATE表操作，可以使用如下两条语句来清空表并重置起始索引号：
+    delete from 表名;
+    DELETE FROM sqlite_sequence WHERE name = '表名';
+
+# 代码片段
+
+    ${PROJECT_NAME} 项目名称
+    ${PRODUCT_NAME} IDE的名称
+    ${NAME} 文件名称
+    ${USER} 用户的登录名
+    ${DATE} 日期
+    ${TIME} 时间
+    ${YEAR} 年
+    ${MONTH} 月
+    ${DAY} 日
+    ${HOUR} 时
+    ${MINUTE} 分
+
+# sqlalchemy
+
+    # alter table user alter column ids set default '' 修改数据库列默认值
+    数据库生成model: sqlacodegen 'mysql+pymysql://root:xl123456?@47.105.50.31:3306/myboot' --outfile=models.py
+    1.first, 一条结果，没有返回None,不抛出异常
+    2.all，返回一个list
+    3.one，没有数据或者有多个都会抛出异常
+    4.one_or_none
+    5.scalar,一条，若有多条结果抛出异常

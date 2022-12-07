@@ -15,7 +15,8 @@ cursor = conn.cursor()
 
 
 def func_main():
-    func_query()
+    # func_query()
+    func_batch()
     pass
 
 
@@ -40,6 +41,19 @@ def func_query():
 
     func_close()
     pass
+
+
+def func_batch():
+    name_list = ["hi", "hello", "hey"]
+    email_list = ["邮箱1", "邮箱2", "邮箱3"]
+    age_list = [20, 21, 22]
+    val_list = [[name_list[i], email_list[i], age_list[i]] for i in range(len(name_list))]
+    print(val_list)
+    sql = 'INSERT INTO user (name,email,age)VALUES (%s, %s, %s);'
+    res = cursor.executemany(sql, val_list)
+    print(res)
+    conn.commit()
+    func_close()
 
 
 def func_close():

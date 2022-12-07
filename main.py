@@ -1,9 +1,9 @@
 # This is a sample Python script.
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-from typestudy import *
-from requeststudy import *
 
+# from typestudy import *
+# from requeststudy import *
 # from funcstudy import *
 # from flowstudy import *
 # from inputstudy import *
@@ -15,8 +15,12 @@ from requeststudy import *
 # from sqlalchemystudy import *
 # from decoratorstudy import *
 # from threadingstudy import *
-from classstudy import *
-from sqlitestudy import *
+# from classstudy import *
+# from sqlitestudy import *
+# from logstudy import *
+# from excelstudy import *
+# from echartsstudy import *
+from peeweestudy import *
 
 
 def print_hi(name):
@@ -53,7 +57,13 @@ def print_hi(name):
     # student1.func_main()
     # print(student1.stu1)
     # print(student1.stu1)
-    t_sqlite.func_main()
+    # t_sqlite.func_main()
+    # t_logging.func_main()
+    # t_logging1.func_main()
+    # t_excel.func_main()
+    # t_abstract.func_main()
+    # t_start.func_main()
+    t_main.func_main()
     pass
 
 
