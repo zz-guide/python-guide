@@ -7,7 +7,11 @@
 from sqlalchemy import and_, or_, func
 
 from sqlalchemystudy.db import session
+from sqlalchemystudy.model.classes_model import ClassesModel
+from sqlalchemystudy.model.teacher_classes_model import TeacherClassesModel
+from sqlalchemystudy.model.user_history_model import UserHistoryModel
 from sqlalchemystudy.model.user_model import UserModel
+from sqlalchemystudy.model.teacher_model import TeacherModel
 
 
 class UserService:
@@ -32,12 +36,18 @@ class UserService:
 
     @staticmethod
     def update():
+        print(1212)
         # 1.将要更新的字段设置为update参数
         # 2.直接设置model属性，然后commit
-        user = session.query(UserModel).filter(UserModel.id == 1).update({UserModel.name: "ben"})
+        # user = session.query(UserModel).filter(UserModel.id == 1).update({UserModel.name: "ben"})
+        # print(user)
+        # session.commit()
+        # session.close()
+
+        user = UserService.get_by_id(7)
         print(user)
+        user.name = '我问问'
         session.commit()
-        session.close()
 
     @staticmethod
     def get_all():
@@ -114,3 +124,60 @@ class UserService:
         session.commit()
         session.close()
         return True
+
+    @staticmethod
+    def one_2_one():
+        user = session.query(UserModel).filter(UserModel.id == 7).one_or_none()
+        print('用户信息:', user)
+        print('班级信息:', user.classes, type(user.classes))
+        print('班级信息222:', user.classes.users, type(user.classes.users))
+
+    @staticmethod
+    def one_2_many():
+        # user_history = session.query(UserHistoryModel).filter(UserHistoryModel.user_id == 7).one_or_none()
+        # print('用户历史信息:', user_history)
+        # print('用户信息:', user_history.user)
+        user = session.query(UserModel).filter(UserModel.id == 7).one_or_none()
+        print('用户信息:', user)
+        print('用户历史信息:', user.user_history_list2)
+        ## 发现了一个奇怪的现象，只有用到了关联属性才会去查表，不知道底层是怎么做的。。。跟lazy属性有关
+        # print('用户历史信息:', user.user_history_list, type(user.user_history_list))
+        # print('用户历史信息2:', user.user_history_list[0], type(user.user_history_list[0].user))
+
+    @staticmethod
+    def many_2_many():
+        # teacher = session.query(TeacherModel).filter(TeacherModel.id == 1).one_or_none()
+        # print('老师信息:', teacher)
+        # print('班级信息:', teacher.classes, type(teacher.classes))
+
+        classes_info = session.query(ClassesModel).filter(ClassesModel.id == 1).one_or_none()
+        print('班级信息:', classes_info)
+        print('老师信息:', classes_info.teachers, type(classes_info.teachers))
+
+    @staticmethod
+    def many_2_many2():
+        association_info = session.query(TeacherClassesModel).filter(TeacherClassesModel.id == 1).one_or_none()
+        print('中间表信息:', association_info)
+        print('老师信息:', association_info.teachers, type(association_info.teachers))
+        print('班级信息:', association_info.classes, type(association_info.teachers))
+
+    @staticmethod
+    def relation_delete():
+        # 尝试关联关系删除
+        res = session.query(UserModel).filter(UserModel.id == 7).one_or_none()
+        session.delete(res)
+        session.commit()
+
+    @staticmethod
+    def join():
+        # INNER JOIN
+        # LEFT OUTER JOIN
+        res = session.query(UserModel, UserHistoryModel).outerjoin(UserHistoryModel).filter(UserModel.id == 7).all()
+        for item in res:
+            print('item:', item)
+
+        pass
+
+    @staticmethod
+    def sub_query():
+        pass

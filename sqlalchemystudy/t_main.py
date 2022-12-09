@@ -5,12 +5,17 @@ from sqlalchemystudy.service.user import UserService
 def func_main():
     # t_insert()
     t_query()
+    # t_update()
     # t_delete()
     pass
 
 
 def t_insert():
     UserService.insert()
+
+
+def t_update():
+    UserService.update()
 
 
 def t_delete():
@@ -21,10 +26,6 @@ def t_delete():
     session.delete(user)
     session.commit()
     session.close()
-
-
-def t_update():
-    pass
 
 
 def t_query():
@@ -71,8 +72,16 @@ def t_query():
     #         print(user.id, user)
 
     # 聚合函数，sum,count,max,min,having,group_by
-    user = UserService.get_count_id()
-    print(user)
+    # user = UserService.get_count_id()
+    # print(user)
+
+    # 关联查询
+    # UserService.one_2_one()
+    # UserService.one_2_many()
+    # UserService.many_2_many()
+    # UserService.join()
+    # UserService.many_2_many2()
+    UserService.relation_delete()
 
 
 if __name__ == '__main__':
