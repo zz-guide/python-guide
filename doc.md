@@ -99,3 +99,34 @@
     3.one，没有数据或者有多个都会抛出异常
     4.one_or_none
     5.scalar,一条，若有多条结果抛出异常
+    # lazy属性参考网址：https://www.jianshu.com/p/8427da16729a/
+    # 关联关系配置：https://docs.sqlalchemy.org/en/14/orm/basic_relationships.html#one-to-many
+    # lazy：https://docs.sqlalchemy.org/en/14/orm/loading_relationships.html#lazy-loading
+    # 问题：
+        1.CURD
+        2.希望能无缝迁移，model定义和数据库定义一致
+        3.model可以进行字段以及方法扩展
+        4.建议手动进行一对一，一对多，多对多关系设置
+        5.不使用内置cascade,relation等
+
+# 知识图谱
+
+    1.数据类型
+    2.for, while, switch
+    3.类
+    4.多线程
+    5.网络
+    6.api
+    7.数据库，orm
+    8.日志
+    9.文件，io
+    10.协程，生成器
+    11.excel
+    12.正则
+    13.日期时间
+    14.装饰器
+    15.设计模式
+    16.pyecharts：https://pyecharts.org/#/zh-cn/global_vars
+    17.try catch
+    18.numpy,pandas,pyside6,pyqt6
+    19.cmd
