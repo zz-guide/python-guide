@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>799</width>
+    <height>631</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="layout_main"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>799</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menumenu">
+    <property name="title">
+     <string>menu</string>
+    </property>
+    <widget class="QMenu" name="menumenu1">
+     <property name="title">
+      <string>menu1</string>
+     </property>
+     <addaction name="actionmenu3"/>
+     <addaction name="actionmenu4"/>
+    </widget>
+    <addaction name="menumenu1"/>
+    <addaction name="actionmenu2"/>
+   </widget>
+   <addaction name="menumenu"/>
+  </widget>
+  <action name="actionmenu2">
+   <property name="text">
+    <string>menu2</string>
+   </property>
+  </action>
+  <action name="actionmenu3">
+   <property name="text">
+    <string>menu3</string>
+   </property>
+  </action>
+  <action name="actionmenu4">
+   <property name="text">
+    <string>menu4</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

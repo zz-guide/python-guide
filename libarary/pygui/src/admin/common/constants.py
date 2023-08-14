@@ -1,0 +1,4 @@
+SUCCESS = 200
+ERROR = 500
+
+MESSAGE_MAP = {SUCCESS: '请求成功', ERROR: '网络开小差，请重试'}
