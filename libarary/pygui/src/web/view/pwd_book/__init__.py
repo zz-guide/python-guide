@@ -1,3 +1,0 @@
-from .pwd_book_table_widget import PwdBookTableWidget
-from .pwd_book_create_widget import PwdBookCreateWidget
-from .pwd_book_update_widget import PwdBookUpdateWidget
